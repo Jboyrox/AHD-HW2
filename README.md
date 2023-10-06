@@ -8,3 +8,7 @@ You can notice that in the beginning when the reset signal is set to 0. The coun
 
 <img width="1194" alt="upcounter_in" src="https://github.com/Jboyrox/AHD-HW2/assets/45749588/18a8a5a4-a230-4393-a0f6-e0e8bb16a915">
 
+In this schematic, we have a clock divider register referred to as clk_div_counter. On each positive edge of the clock, it takes a 27-bit sequence and increments it by 1 bit. The resulting 27th bit is then sent to the slow_clk. On the positive edge of the clock, slow_clk takes this 27th bit and uses it as the clock signal for the i_cnt register. If the reset is activated, the 6-bit sequence resets to a specified N number. When the input enable is active and the reset is not, the counter increments by 1. To handle cases where all bit values are full and for different combinational bit addition sequences, a MUX is employed to reset the count back to 0. The resulting 6-bit sequence is then passed to cnt, which in turn is connected to LEDs for output.
+
+![Downcounter](https://github.com/Jboyrox/AHD-HW2/assets/45749588/3d8b7d79-ef85-4d62-945a-40b67f6637d9)
+
