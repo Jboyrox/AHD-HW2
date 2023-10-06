@@ -22,3 +22,10 @@ You can notice that in the beginning when the reset signa is set to 0. The count
 Within this diagram, we utilize the clk_div_counter. On the positive clock edge, it takes a 27-bit sequence and increments it by one bit. The resulting 27th bit is then sent to slow_clk, where the register captures this value on the positive edge of the clock. This captured value serves as the clock signal for the i_cnt_reg. Within i_cnt_reg, if a reset is triggered, the 6-bit sequence resets to a specified N number. When the input enable is active and the reset is not, the counter decrements by 1. A MUX is employed to reset the count back to an all-1’s state in the 6-bit sequence when the sequence hits all 0’s, and for various combinational subtracting count sequences. The resulting 6-bit sequence is then directed to cnt, which in turn drives the LEDs.
 
 In comparing the Verilog and VHDL schematics, a notable distinction lies in the clock divider registers. In the Verilog schematic, two nonblocking registers receive the same clock signal for both clk_div_cntr register and the slow_clk register. Conversely, in the VHDL schematic, the clock signal is applied to clk_div_counter only, and the output from that register is then propagated accordingly.
+
+Upcounter FPGA Video:
+https://drive.google.com/file/d/1a6tk8JYHhMo2seJWJSSZeFkGKVoR-3AZ/view?usp=share_link
+
+Downcounter FPGA Video:
+https://drive.google.com/file/d/1JIhuLNOVw7IUl1L1d3nKZhezBewQvUPP/view?usp=share_link
+
